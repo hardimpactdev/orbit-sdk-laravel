@@ -1,0 +1,61 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "hardimpactdev/orbit-sdk-laravel",
+    "description": "Laravel SDK for consuming the Orbit gateway API.",
+    "keywords": [
+        "laravel",
+        "orbit",
+        "sdk"
+    ],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": "^8.5",
+        "illuminate/support": "^12.0 || ^13.0",
+        "psr/http-message": "^2.0",
+        "saloonphp/saloon": "^4.0"
+    },
+    "require-dev": {
+        "carthage-software/mago": "^1.40.1",
+        "mockery/mockery": "^1.6",
+        "pestphp/pest": "^5.0",
+        "rector/rector": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Orbit\\Sdk\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Orbit\\Sdk\\Laravel\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/mago analyze src --reporting-format=medium",
+        "format": "vendor/bin/mago format",
+        "rector": "vendor/bin/rector process",
+        "test": "vendor/bin/pest --compact",
+        "mago:analyze": "vendor/bin/mago analyze src --reporting-format=medium",
+        "mago:lint": "vendor/bin/mago lint --reporting-format=medium",
+        "mago:format": "vendor/bin/mago format",
+        "mago:format:check": "vendor/bin/mago format --check"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Orbit\\Sdk\\Laravel\\OrbitSdkLaravelServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "rector/rector": true
+        },
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "version": "0.1.193"
+}
